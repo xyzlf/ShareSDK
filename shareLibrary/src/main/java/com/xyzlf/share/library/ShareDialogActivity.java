@@ -150,7 +150,7 @@ public class ShareDialogActivity extends ShareBaseActivity implements AdapterVie
     }
     /**
      * 分享
-     * @param channel
+     * @param channel {@link ShareConstant#SHARE_CHANNEL_ALL}
      */
     protected void handleShare(int channel) {
         switch (channel) {
@@ -204,31 +204,31 @@ public class ShareDialogActivity extends ShareBaseActivity implements AdapterVie
         ShareUtil.startShare(this, ShareConstant.SHARE_CHANNEL_WEIXIN_FRIEND, getShareData(ShareConstant.SHARE_CHANNEL_WEIXIN_FRIEND), ShareConstant.REQUEST_CODE);
     }
     /**
-     * 分享微信朋友圈
+     * share to weixin circle
      */
     protected void shareByWeixinCircle() {
         ShareUtil.startShare(this, ShareConstant.SHARE_CHANNEL_WEIXIN_CIRCLE, getShareData(ShareConstant.SHARE_CHANNEL_WEIXIN_CIRCLE), ShareConstant.REQUEST_CODE);
     }
     /**
-     * 分享到更多
+     * share more
      */
     protected void shareBySystem() {
         ShareUtil.startShare(this, ShareConstant.SHARE_CHANNEL_SYSTEM, getShareData(ShareConstant.SHARE_CHANNEL_SYSTEM), ShareConstant.REQUEST_CODE);
     }
     /**
-     * 分享到短信
+     * share sms
      */
     protected void shareBySms() {
         ShareUtil.startShare(this, ShareConstant.SHARE_CHANNEL_SMS, getShareData(ShareConstant.SHARE_CHANNEL_SMS), ShareConstant.REQUEST_CODE);
     }
     /**
-     * 分享到邮箱
+     * share email
      */
     protected void shareByEmail() {
         ShareUtil.startShare(this, ShareConstant.SHARE_CHANNEL_EMAIL, getShareData(ShareConstant.SHARE_CHANNEL_EMAIL), ShareConstant.REQUEST_CODE);
     }
     /**
-     * 分享到新浪微博
+     * share weibo
      */
     protected void shareBySinaWeibo() {
         ShareUtil.startShare(this, ShareConstant.SHARE_CHANNEL_SINA_WEIBO, getShareData(ShareConstant.SHARE_CHANNEL_SINA_WEIBO), ShareConstant.REQUEST_CODE);

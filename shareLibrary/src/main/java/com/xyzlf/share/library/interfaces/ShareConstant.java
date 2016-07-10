@@ -11,9 +11,9 @@ public class ShareConstant {
      */
     public static final int SHARE_CHANNEL_WEIXIN_FRIEND = 1; //微信好友
     /**
-     * 微信朋友圈分享渠道
+     * weixin circle
      */
-    public static final int SHARE_CHANNEL_WEIXIN_CIRCLE = 1 << 1; //微信朋友圈
+    public static final int SHARE_CHANNEL_WEIXIN_CIRCLE = 1 << 1;
     /**
      * 新浪微博渠道
      */
@@ -39,13 +39,13 @@ public class ShareConstant {
      */
     public static final int SHARE_CHANNEL_SYSTEM = 1 << 10; //更多
     /**
-     * 所有渠道
+     * All channel
      */
     public static final int SHARE_CHANNEL_ALL = ~0;
 
     /// -------------------------- 分享渠道 --------------------------
 
-    /// <<<< 分享状态
+    /// <<<< share status
     public static final String EXTRA_SHARE_DATA = "extra_share_data";
     public static final String EXTRA_SHARE_CHANNEL = "extra_show_channel";
     public static final String EXTRA_SHARE_STATUS = "extra_share_status";
@@ -59,7 +59,7 @@ public class ShareConstant {
     public static final int SHARE_WEIBO_AUTH_CANCEL = 21;
     public static final int SHARE_WEIBO_AUTH_ERROR = 22;
 
-    /// <<<< 分享状态
+    /// <<<< share status
 
 
     /// <<< 微信回调
@@ -71,8 +71,8 @@ public class ShareConstant {
     public static final String QQ_PACKAGE_NAME = "com.tencent.mobileqq"; // QQ包名
     public static final String SINA_WEIBO_PACKAGE_NAME = "com.sina.weibo"; // 新浪微博
 
-    /// <<<< 请求码
+    /// <<<< request code
     public static final int REQUEST_CODE = 20112;
-    /// <<<< 请求码
+    /// <<<< request code
 
 }

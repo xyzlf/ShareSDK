@@ -99,10 +99,6 @@ public class ShareHandlerActivity extends ShareBaseActivity implements IWeiboHan
                     break;
             }
         } else {
-            // 当 Activity 被重新初始化时（该 Activity 处于后台时，可能会由于内存不足被杀掉了），
-            // 需要调用 {@link IWeiboShareAPI#handleWeiboResponse} 来接收微博客户端返回的数据。
-            // 执行成功，返回 true，并调用 {@link IWeiboHandler.Response#onResponse}；
-            // 失败返回 false，不调用上述回调
             if (null != shareByWeibo) {
                 shareByWeibo.onNewIntent(getIntent(), this);
             }
@@ -152,11 +148,7 @@ public class ShareHandlerActivity extends ShareBaseActivity implements IWeiboHan
     }
 
     /**
-     * 接收微客户端博请求的数据。
-     * 当微博客户端唤起当前应用并进行分享时，该方法被调用。
-     *
-     * @param baseResp 微博请求数据对象
-     * @see {@link IWeiboShareAPI#handleWeiboRequest}
+     * weibo call back
      */
     @Override
     public void onResponse(BaseResponse baseResp) {

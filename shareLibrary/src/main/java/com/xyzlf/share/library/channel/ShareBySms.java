@@ -36,7 +36,6 @@ public class ShareBySms extends ShareBase {
 
         Uri smsToUri = Uri.parse("smsto:");
         Intent sendIntent = new Intent(Intent.ACTION_VIEW, smsToUri);
-        // 电话号码，这行去掉的话，默认就没有电话
         //sendIntent.putExtra("address", "");
         //短信内容
         sendIntent.putExtra("sms_body", content);

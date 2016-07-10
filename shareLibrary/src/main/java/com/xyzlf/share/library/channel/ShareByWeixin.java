@@ -58,7 +58,7 @@ public class ShareByWeixin extends ShareBase {
     }
 
     /**
-     * 反注册微信回调广播
+     * unregister
      */
     public void unregisterWeixinReceiver() {
         if (null != context && null != receiver) {
@@ -77,7 +77,7 @@ public class ShareByWeixin extends ShareBase {
     }
 
     /**
-     * 开启分享
+     * start share
      */
     private void start() {
         if (api.isWXAppInstalled()) {
@@ -126,7 +126,6 @@ public class ShareByWeixin extends ShareBase {
     private void send(Bitmap bitmap) {
         SendMessageToWX.Req req = new SendMessageToWX.Req();
         req.transaction = String.valueOf(System.currentTimeMillis());
-        //构造微信API的消息
         req.message = buildWXMediaMessage(bitmap);
         if (channel == ShareConstant.SHARE_CHANNEL_WEIXIN_FRIEND) {
             req.scene = SendMessageToWX.Req.WXSceneSession;
@@ -163,7 +162,8 @@ public class ShareByWeixin extends ShareBase {
 
     /**
      * 微信分享图片不能超过64kb，特别坑...
-     * @return
+     * @param targetBitmap bitmap
+     * @return Bitmap
      */
     protected Bitmap getWxShareBitmap(Bitmap targetBitmap) {
         float scale = Math.min((float) 150 / targetBitmap.getWidth(), (float) 150 / targetBitmap.getHeight());
@@ -199,11 +199,6 @@ public class ShareByWeixin extends ShareBase {
 
     private static final int THUMB_SIZE = 250;
 
-    /**
-     * 微信分享大图，只有一张大图
-     *
-     * @param bitmap
-     */
     public void shareImg(Bitmap bitmap, OnShareListener listener) {
         this.listener = listener;
         if (null == bitmap) {
@@ -232,7 +227,6 @@ public class ShareByWeixin extends ShareBase {
 
                 SendMessageToWX.Req req = new SendMessageToWX.Req();
                 req.transaction = String.valueOf(System.currentTimeMillis());
-                //构造微信API的消息
                 req.message = wxMediaMessage;
                 if (ShareConstant.SHARE_CHANNEL_WEIXIN_FRIEND == channel) {
                     req.scene = SendMessageToWX.Req.WXSceneSession;

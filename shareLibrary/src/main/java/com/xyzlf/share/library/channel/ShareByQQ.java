@@ -41,7 +41,6 @@ public class ShareByQQ extends ShareBase {
         if (context == null) {
             return;
         }
-        //QQ分享中url是必传参数，如果没有分享url则沿用老分享方法
         if (!TextUtils.isEmpty(data.getUrl()) && !TextUtils.isEmpty(data.getTitle())) {
             if (!(context instanceof Activity)) {
                 return;

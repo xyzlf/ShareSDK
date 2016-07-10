@@ -37,7 +37,6 @@ public class ShareBySystem extends ShareBase {
         shareIntent.setAction(Intent.ACTION_SEND);
         shareIntent.putExtra(Intent.EXTRA_TEXT, content);
         shareIntent.setType("text/plain");
-//        startActivity(Intent.createChooser(shareIntent, "分享到"));
         if(ShareUtil.startActivity(context, shareIntent)) {
             if (null != listener) {
                 listener.onShare(ShareConstant.SHARE_CHANNEL_SYSTEM, ShareConstant.SHARE_STATUS_COMPLETE);

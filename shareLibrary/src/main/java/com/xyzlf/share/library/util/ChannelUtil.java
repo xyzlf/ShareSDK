@@ -13,9 +13,9 @@ public class ChannelUtil {
     /**
      * 判断App是否安装
      *
-     * @param context
-     * @param pkgName
-     * @return
+     * @param context context
+     * @param pkgName pkgname
+     * @return boolean
      */
     public static boolean isAppInstall(Context context, String pkgName) {
         if (TextUtils.isEmpty(pkgName)) {
@@ -33,16 +33,16 @@ public class ChannelUtil {
     }
     /**
      * 微信是否安装
-     * @param context
-     * @return
+     * @param context context
+     * @return boolean
      */
     public static boolean isWeixinInstall(Context context) {
         return isAppInstall(context, ShareConstant.WEIXIN_PACKAGE_NAME);
     }
     /**
      * QQ是否安装
-     * @param context
-     * @return
+     * @param context context
+     * @return boolean
      */
     public static boolean isQQInstall(Context context) {
         return isAppInstall(context, ShareConstant.QQ_PACKAGE_NAME);

@@ -42,7 +42,7 @@ public class ShareByQZone extends ShareByQQ {
         if (!TextUtils.isEmpty(data.getImgUrl())) {
             arrayList.add(data.getImgUrl());
         }
-        params.putStringArrayList(QzoneShare.SHARE_TO_QQ_IMAGE_URL, arrayList);//分享的图片, 以ArrayList<String>的类型传入，以便支持多张图片（注：图片最多支持9张图片，多余的图片会被丢弃）。
+        params.putStringArrayList(QzoneShare.SHARE_TO_QQ_IMAGE_URL, arrayList);
         mTencent.shareToQzone((Activity) context, params, new IUiListener() {
             @Override
             public void onComplete(Object o) {

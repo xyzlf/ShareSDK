@@ -19,8 +19,8 @@ public class ManifestUtil {
 
     /**
      * 读取新浪微博的Appkey
-     * @param context
-     * @return
+     * @param context context
+     * @return String
      */
     public static String getSinaWeiboKey(Context context) {
 
@@ -46,8 +46,8 @@ public class ManifestUtil {
 
     /**
      * 读取新浪微博的重定向URI
-     * @param context
-     * @return
+     * @param context context
+     * @return String
      */
     public static String getSinaWeiboRedirecturi(Context context) {
         try {
@@ -73,8 +73,8 @@ public class ManifestUtil {
 
     /**
      * 读取微信的AppKey
-     * @param context
-     * @return
+     * @param context context
+     * @return String
      */
     public static String getWeixinKey(Context context) {
         try {
@@ -100,8 +100,8 @@ public class ManifestUtil {
 
     /**
      * 读取微信的重定向URI
-     * @param context
-     * @return
+     * @param context context
+     * @return String
      */
     public static String getWeixinRedirecturi(Context context) {
         try {
@@ -126,9 +126,9 @@ public class ManifestUtil {
     }
 
     /**
-     * 获取腾讯开放平台的Appid
-     * @param context
-     * @return
+     * tencent Appid
+     * @param context context
+     * @return String
      */
     public static String getTencentQQAppId(Context context) {
         try {

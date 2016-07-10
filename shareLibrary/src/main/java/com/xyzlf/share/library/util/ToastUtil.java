@@ -12,9 +12,9 @@ public class ToastUtil {
 
     /**
      * 显示toast
-     * @param context
-     * @param resId
-     * @param isShort
+     * @param context context
+     * @param resId 资源id
+     * @param isShort isShort
      */
     public static void showToast(Context context, @IdRes int resId, boolean isShort) {
         if (null == context) {
@@ -33,9 +33,9 @@ public class ToastUtil {
 
     /**
      * 显示toast
-     * @param context
-     * @param msg
-     * @param isShort
+     * @param context context
+     * @param msg 信息
+     * @param isShort isShort
      */
     public static void showToast(Context context, String msg, boolean isShort) {
         if (null == context) {

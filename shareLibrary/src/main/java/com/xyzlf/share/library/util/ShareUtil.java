@@ -19,7 +19,7 @@ public class ShareUtil {
 
     /**
      * 分享数据
-     * @param activity
+     * @param activity Activity
      * @param channel {@link ShareConstant}
      * @param data {@link ShareEntity}
      * @param requestCode {@link android.app.Activity#onActivityResult(int, int, Intent)}
@@ -36,9 +36,9 @@ public class ShareUtil {
 
     /**
      * 调起ShareDialogActivity
-     * @param activity
+     * @param activity Activity
      * @param data {@link ShareEntity}
-     * @param requestCode
+     * @param requestCode requestCode
      */
     public static void showShareDialog(Activity activity, ShareEntity data, int requestCode) {
         showShareDialog(activity, ShareConstant.SHARE_CHANNEL_ALL, data, requestCode);
@@ -46,10 +46,10 @@ public class ShareUtil {
 
     /**
      * 调起ShareDialogActivity
-     * @param activity
+     * @param activity Activity
      * @param data {@link ShareEntity}
      * @param channel {@link ShareConstant#SHARE_CHANNEL_ALL}
-     * @param requestCode
+     * @param requestCode requestCode
      */
     public static void showShareDialog(Activity activity, int channel, ShareEntity data, int requestCode) {
         if (null == activity || activity.isFinishing()) {
@@ -62,21 +62,21 @@ public class ShareUtil {
     }
 
     /**
-     * 传递数组数据
+     * data is sparsearray
      * @param activity {@link Activity}
      * @param data {@link ShareEntity}
-     * @param requestCode
+     * @param requestCode requestCode
      */
     public static void showShareDialog(Activity activity, SparseArray<ShareEntity> data, int requestCode) {
         showShareDialog(activity, ShareConstant.SHARE_CHANNEL_ALL, data, requestCode);
     }
 
     /**
-     * 传递数组数据
-     * @param activity
-     * @param channel
-     * @param data
-     * @param requestCode
+     * data is sparsearray
+     * @param activity Activity
+     * @param channel 渠道
+     * @param data data
+     * @param requestCode requestCode
      */
     public static void showShareDialog(Activity activity, int channel, SparseArray<ShareEntity> data, int requestCode) {
         if (null == activity || activity.isFinishing()) {
@@ -91,7 +91,6 @@ public class ShareUtil {
     }
 
 
-    // 使用此方法打开外部activity,避免外部activity不存在而造成崩溃
     public static boolean startActivity(Context context, Class<?> c) {
         boolean result = true;
         try {
@@ -107,7 +106,6 @@ public class ShareUtil {
         return result;
     }
 
-    // 使用此方法打开外部activity,避免外部activity不存在而造成崩溃
     public static boolean startActivity(Context context, Intent intent) {
         boolean bResult = true;
         try {
