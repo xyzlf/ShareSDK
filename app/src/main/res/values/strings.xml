@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">ShareSDK</string>
+
+    <string name="show_share_dialog">显示分享界面</string>
+
+    <string name="share_qq">调用QQ分享</string>
+    <string name="share_weixin">调用微信分享</string>
+    <string name="share_wxcircle">调用朋友圈分享</string>
+    <string name="share_weibo">调用微博分享</string>
+    <string name="share_qzone">调用QZone分享</string>
+
+</resources>

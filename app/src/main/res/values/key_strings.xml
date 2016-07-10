@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Weibo -->
+    <string name="sina_weibo_key">your weibo key</string>
+    <string name="sina_weibo_redirecturi">your weibo redirecturi</string>
+
+    <!-- Weixin -->
+    <string name="weixin_key">your weixin key</string>
+    <string name="weixin_redirecturi">your weixin redirecturi</string>
+
+    <!-- QQ -->
+    <string name="tencent_qq_appid">222222</string>
+
+</resources>

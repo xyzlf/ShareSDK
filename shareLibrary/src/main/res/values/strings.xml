@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">ShareLibrary</string>
+
+    <string name="share_to">分享到</string>
+
+    <string name="share_empty_tip">分享內容不能为空</string>
+    <string name="share_channel_none">没有该分享渠道</string>
+
+    <!--微信-->
+    <string name="share_no_weixin_client">分享失败，请先安装微信</string>
+
+    <!--分享结果-->
+    <string name="share_success">分享成功</string>
+    <string name="share_failed">分享失败</string>
+    <string name="share_cancel">分享取消</string>
+
+    <string name="share_weibosdk_auth_success">授权成功</string>
+    <string name="share_weibosdk_auth_failed">授权失败</string>
+    <string name="share_weibosdk_auth_canceled">取消授权</string>
+
+
+    <!-- share channel -->
+    <string name="share_channel_weixin_friend">微信</string>
+    <string name="share_channel_weixin_circle">朋友圈</string>
+    <string name="share_channel_weibo">微博</string>
+    <string name="share_channel_qq">QQ</string>
+    <string name="share_channel_qzone">QQ空间</string>
+    <string name="share_channel_more">更多</string>
+
+</resources>

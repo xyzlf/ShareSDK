@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/show_share"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="showShareDialog"
+        android:text="@string/show_share_dialog" />
+
+    <Button
+        android:id="@+id/share_qq"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/share_qq" />
+
+    <Button
+        android:id="@+id/share_qzone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/share_qzone" />
+
+    <Button
+        android:id="@+id/share_weixin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/share_weixin" />
+
+    <Button
+        android:id="@+id/share_wxcircle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/share_wxcircle" />
+
+    <Button
+        android:id="@+id/share_weibo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/share_weibo" />
+
+</LinearLayout>

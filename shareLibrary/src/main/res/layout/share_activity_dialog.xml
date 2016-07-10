@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="@string/share_to"
+        android:textColor="#333333"
+        android:textSize="17sp"/>
+
+    <View
+        android:id="@+id/title_sep"
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="#8d8d8d"/>
+
+    <GridView
+        android:id="@+id/share_grid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:listSelector="@android:color/transparent"
+        android:numColumns="3"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:verticalSpacing="10dp"/>
+
+</LinearLayout>
