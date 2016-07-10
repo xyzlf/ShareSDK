@@ -52,14 +52,6 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
 
-        <!-- 微信分享注册 -->
-        <activity
-            android:name=".wxapi.WXEntryActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:exported="true"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-
         <!-- QQ SDK 需要註冊Activity -->
         <activity
             android:name="com.tencent.connect.common.AssistActivity"
