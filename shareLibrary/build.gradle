@@ -34,10 +34,21 @@ dependencies {
     compile 'com.android.support:appcompat-v7:24.0.0'
 }
 
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+String localBintrayUser = properties.getProperty("bintray.user")
+String localBintrayApikey = properties.getProperty("bintray.apikey")
+
+//推送指令
+//gradlew clean build bintrayUpload
 //添加
 publish {
-    userOrg = 'xyzlf'//bintray.com用户名
-    groupId = 'com.xyzlf.share'//jcenter上的路径
+    bintrayUser = localBintrayUser   //bintray.com用户名
+    bintrayKey = localBintrayApikey  //bintray.com apikey
+    dryRun = false
+    userOrg = localBintrayUser
+    groupId = 'com.'+ localBintrayUser +'.share'//jcenter上的路径
     artifactId = 'sharesdk'//项目名称
     publishVersion = '0.0.1'//版本号
     desc = 'Oh hi, this is a nice description for a project, right?'
