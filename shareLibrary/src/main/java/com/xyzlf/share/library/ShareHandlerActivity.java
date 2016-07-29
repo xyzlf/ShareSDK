@@ -42,8 +42,11 @@ public class ShareHandlerActivity extends ShareBaseActivity implements IWeiboHan
     protected void onCreate(Bundle savedInstanceState) {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
-
-        Object object = getIntent().getParcelableExtra(ShareConstant.EXTRA_SHARE_DATA);
+        Object object = null;
+        try {
+            //Fuzz问题处理
+            object = getIntent().getParcelableExtra(ShareConstant.EXTRA_SHARE_DATA);
+        } catch (Exception e) {}
         if (null == object || !(object instanceof ShareEntity)) {
             finish();
             return;

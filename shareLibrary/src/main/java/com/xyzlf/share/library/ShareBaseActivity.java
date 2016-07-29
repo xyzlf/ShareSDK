@@ -23,7 +23,10 @@ public abstract class ShareBaseActivity extends FragmentActivity {
     }
 
     protected void initChannel() {
-        channel = getIntent().getIntExtra(ShareConstant.EXTRA_SHARE_CHANNEL, ShareConstant.SHARE_CHANNEL_ALL);
+        try {
+            //Fuzz问题处理
+            channel = getIntent().getIntExtra(ShareConstant.EXTRA_SHARE_CHANNEL, ShareConstant.SHARE_CHANNEL_ALL);
+        } catch (Exception e) {}
     }
 
     /**

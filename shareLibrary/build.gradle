@@ -50,7 +50,7 @@ publish {
     userOrg = localBintrayUser
     groupId = 'com.'+ localBintrayUser +'.share'//jcenter上的路径
     artifactId = 'sharesdk'//项目名称
-    publishVersion = '0.0.1'//版本号
+    publishVersion = '0.0.2'//版本号
     desc = 'Oh hi, this is a nice description for a project, right?'
     website = 'https://github.com/xyzlf/ShareSDK'
 }
