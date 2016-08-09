@@ -174,6 +174,7 @@ public class ShareDialogActivity extends ShareBaseActivity implements AdapterVie
 
             case ShareConstant.SHARE_CHANNEL_SYSTEM:
                 shareBySystem();
+                finish();
                 break;
 
             case ShareConstant.SHARE_CHANNEL_SMS:

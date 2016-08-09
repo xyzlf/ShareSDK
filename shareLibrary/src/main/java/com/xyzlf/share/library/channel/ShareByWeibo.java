@@ -28,6 +28,8 @@ import com.xyzlf.share.library.request.BitmapAsyncTask;
 import com.xyzlf.share.library.util.ManifestUtil;
 import com.xyzlf.share.library.util.ToastUtil;
 
+import java.io.File;
+
 
 /**
  * Created by zhanglifeng on 2016/6/18
@@ -92,18 +94,25 @@ public class ShareByWeibo extends ShareBase {
     }
 
     private void weiboShare() {
-        if (!TextUtils.isEmpty(data.getImgUrl())) {
-            new BitmapAsyncTask(data.getImgUrl(), new BitmapAsyncTask.OnBitmapListener() {
-                @Override
-                public void onSuccess(Bitmap bitmap) {
-                    sendMultiMessage(bitmap);
-                }
+        String imgUrl = data.getImgUrl();
+        if (!TextUtils.isEmpty(imgUrl)) {
+            // 网络图片
+            if (imgUrl.startsWith("http")) {
+                new BitmapAsyncTask(imgUrl, new BitmapAsyncTask.OnBitmapListener() {
+                    @Override
+                    public void onSuccess(Bitmap bitmap) {
+                        sendMultiMessage(bitmap);
+                    }
 
-                @Override
-                public void onException(Exception exception) {
-                    sendMultiMessage();
-                }
-            }).execute();
+                    @Override
+                    public void onException(Exception exception) {
+                        sendMultiMessage();
+                    }
+                }).execute();
+            } else {
+                //本地图片
+                sendMultiMessage(getLoacalBitmap(imgUrl));
+            }
         } else {
             sendMultiMessage();
         }
@@ -116,6 +125,19 @@ public class ShareByWeibo extends ShareBase {
         }
         return false;
     }
+
+    public Bitmap getLoacalBitmap(String localPath) {
+        File file = new File(localPath);
+        if (file.exists()) {
+            try {
+                return BitmapFactory.decodeFile(localPath);
+            } catch (OutOfMemoryError error) {
+                error.printStackTrace();
+            }
+        }
+        return BitmapFactory.decodeResource(context.getResources(), R.drawable.share_default);
+    }
+
     /**
      * 是否过期；剩余时间不足半小时视为过期
      * @param expiredAt date
@@ -176,7 +198,10 @@ public class ShareByWeibo extends ShareBase {
         TextObject textObject = new TextObject();
         if (null != data) {
             StringBuilder builder = new StringBuilder();
-            builder.append(data.getContent()).append("  ").append(data.getUrl());
+            builder.append(data.getContent());
+            if (!TextUtils.isEmpty(data.getUrl())) {
+                builder.append("  ").append(data.getUrl());
+            }
             textObject.text = builder.toString();
         }
         return textObject;
