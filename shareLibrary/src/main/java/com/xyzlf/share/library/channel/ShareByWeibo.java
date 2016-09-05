@@ -5,7 +5,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 
 import com.sina.weibo.sdk.api.ImageObject;
@@ -109,6 +112,19 @@ public class ShareByWeibo extends ShareBase {
                         sendMultiMessage();
                     }
                 }).execute();
+            } else if (data.getDrawableId() != 0) {
+                BitmapDrawable drawable = null;
+                try {
+                    drawable = (BitmapDrawable) ContextCompat.getDrawable(context, data.getDrawableId());
+                } catch (Exception ignored) {
+                }
+                if (null != drawable) {
+                    sendMultiMessage(drawable.getBitmap());
+                } else {
+                    sendMultiMessage();
+                }
+            } else if (data.getBitmap() != null) {
+                sendMultiMessage(data.getBitmap());
             } else {
                 //本地图片
                 sendMultiMessage(getLoacalBitmap(imgUrl));

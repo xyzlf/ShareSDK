@@ -50,7 +50,9 @@ public class ShareByQQ extends ShareBase {
             params.putString(QQShare.SHARE_TO_QQ_TITLE, data.getTitle());//必填
             params.putString(QQShare.SHARE_TO_QQ_SUMMARY, data.getContent());//选填
             params.putString(QQShare.SHARE_TO_QQ_TARGET_URL, data.getUrl());//必填
-            params.putString(QQShare.SHARE_TO_QQ_IMAGE_URL, data.getImgUrl());
+            if (!TextUtils.isEmpty(data.getImgUrl())) {
+                params.putString(QQShare.SHARE_TO_QQ_IMAGE_URL, data.getImgUrl());
+            }
             mTencent.shareToQQ((Activity) context, params, new IUiListener() {
                 @Override
                 public void onComplete(Object o) {

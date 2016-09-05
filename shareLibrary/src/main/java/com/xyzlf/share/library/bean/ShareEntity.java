@@ -1,7 +1,9 @@
 package com.xyzlf.share.library.bean;
 
+import android.graphics.Bitmap;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.DrawableRes;
 
 /**
  * Created by zhanglifeng
@@ -11,7 +13,10 @@ public class ShareEntity implements Parcelable {
     private String title;
     private String content;
     private String url;
+
     private String imgUrl;
+    private int drawableId;
+    private Bitmap bitmap;
 
     public ShareEntity(String title, String content) {
         this(title, content, null);
@@ -60,16 +65,25 @@ public class ShareEntity implements Parcelable {
         this.imgUrl = imgUrl;
     }
 
+    public void setDrawableId(@DrawableRes int drawableId) {
+        this.drawableId = drawableId;
+    }
+
+    public int getDrawableId() {
+        return drawableId;
+    }
+
+    public void setBitmap(Bitmap bitmap) {
+        this.bitmap = bitmap;
+    }
+
+    public Bitmap getBitmap() {
+        return bitmap;
+    }
+
     @Override
     public int describeContents() {
         return 0;
-    }
-
-    protected ShareEntity(Parcel in) {
-        title = in.readString();
-        content = in.readString();
-        url = in.readString();
-        imgUrl = in.readString();
     }
 
     public static final Creator<ShareEntity> CREATOR = new Creator<ShareEntity>() {
@@ -84,11 +98,22 @@ public class ShareEntity implements Parcelable {
         }
     };
 
+    protected ShareEntity(Parcel in) {
+        title = in.readString();
+        content = in.readString();
+        url = in.readString();
+        imgUrl = in.readString();
+        drawableId = in.readInt();
+        bitmap = in.readParcelable(Bitmap.class.getClassLoader());
+    }
+
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(title);
         dest.writeString(content);
         dest.writeString(url);
         dest.writeString(imgUrl);
+        dest.writeInt(drawableId);
+        dest.writeParcelable(bitmap, flags);
     }
 }

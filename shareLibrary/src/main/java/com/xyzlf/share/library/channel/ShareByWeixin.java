@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 
 import com.tencent.mm.sdk.modelbase.BaseResp;
@@ -93,15 +95,28 @@ public class ShareByWeixin extends ShareBase {
 
                         @Override
                         public void onException(Exception exception) {
-                            send(null);
+                            send();
                         }
                     }).execute();
                 } else {
                     //本地图片
                    send(getLoacalBitmap(imgUrl));
                 }
-            } else {
-                send(null);
+            } else if (data.getDrawableId() != 0) {
+                BitmapDrawable drawable = null;
+                try {
+                    drawable = (BitmapDrawable) ContextCompat.getDrawable(context, data.getDrawableId());
+                } catch (Exception ignored) {
+                }
+                if (null != drawable) {
+                    send(drawable.getBitmap());
+                } else {
+                    send();
+                }
+            } else if (data.getBitmap() != null) {
+                send(data.getBitmap());
+            }  else {
+                send();
             }
         } else {
             if (null != listener) {
@@ -121,6 +136,10 @@ public class ShareByWeixin extends ShareBase {
             }
         }
         return BitmapFactory.decodeResource(context.getResources(), R.drawable.share_default);
+    }
+
+    private void send() {
+        this.send(null);
     }
 
     private void send(Bitmap bitmap) {
