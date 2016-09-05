@@ -24,7 +24,7 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:24.0.0'
 
-    compile ('com.xyzlf.share:sharesdk:0.0.4') {
+    compile ('com.xyzlf.share:sharesdk:0.0.5') {
         exclude group: 'com.android.support', module: 'appcompat-v7'
     }
 
