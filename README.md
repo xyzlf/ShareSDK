@@ -3,7 +3,7 @@
 
 # Gradle
     
-    compile ('com.xyzlf.share:sharesdk:0.0.4') {
+    compile ('com.xyzlf.share:sharesdk:0.0.5') {
     	exclude group: 'com.android.support', module: 'appcompat-v7'
     }
 
@@ -49,6 +49,14 @@
     }
 
 详细使用说明，可以参照上面的使用说明文档。
+
+# 更新日志
+
+0.0.5 支持本地图片分享。
+    ShareEntity testBean = new ShareEntity("我是标题", "我是内容，描述内容。");
+1、本地drawable图片，使用方式：testBean.setDrawableId(R.drawable.icon);
+2、本地手机SD卡图片，使用方式：testBean.setImgUrl(/sdpath/filepath/icon.png);
+3、本地代码截屏Bitmap，使用方式：testBean.setBitmap(bitmap);
 
 # 关于我
 有任何使用问题，可以给我发邮件：
