@@ -71,7 +71,7 @@ E-mail：519578280@qq.com
 
 # License
 
-    Copyright (C)  LessCode Open Source Project
+    Copyright(c)2016 xyzlf Open Source Project
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
