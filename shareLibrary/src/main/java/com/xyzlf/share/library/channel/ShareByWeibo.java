@@ -112,23 +112,23 @@ public class ShareByWeibo extends ShareBase {
                         sendMultiMessage();
                     }
                 }).execute();
-            } else if (data.getDrawableId() != 0) {
-                BitmapDrawable drawable = null;
-                try {
-                    drawable = (BitmapDrawable) ContextCompat.getDrawable(context, data.getDrawableId());
-                } catch (Exception ignored) {
-                }
-                if (null != drawable) {
-                    sendMultiMessage(drawable.getBitmap());
-                } else {
-                    sendMultiMessage();
-                }
-            } else if (data.getBitmap() != null) {
-                sendMultiMessage(data.getBitmap());
             } else {
                 //本地图片
                 sendMultiMessage(getLoacalBitmap(imgUrl));
             }
+        } else if (data.getDrawableId() != 0) {
+            BitmapDrawable drawable = null;
+            try {
+                drawable = (BitmapDrawable) ContextCompat.getDrawable(context, data.getDrawableId());
+            } catch (Exception ignored) {
+            }
+            if (null != drawable) {
+                sendMultiMessage(drawable.getBitmap());
+            } else {
+                sendMultiMessage();
+            }
+        } else if (data.getBitmap() != null) {
+            sendMultiMessage(data.getBitmap());
         } else {
             sendMultiMessage();
         }
