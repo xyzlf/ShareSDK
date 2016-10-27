@@ -64,7 +64,7 @@ publish {
     userOrg = localBintrayUser
     groupId = 'com.'+ localBintrayUser +'.share'//jcenter上的路径
     artifactId = 'sharesdk'//项目名称
-    publishVersion = '0.0.5'//版本号
-    desc = 'Oh hi, this is a nice description for a project, right?'
+    publishVersion = '0.0.6'//版本号
+    desc = 'This is a share SDK. It include QQ, Weixin, Weibo, Sms, Email channel.'
     website = 'https://github.com/xyzlf/ShareSDK'
 }
