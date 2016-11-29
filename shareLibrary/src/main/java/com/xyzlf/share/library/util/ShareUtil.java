@@ -128,7 +128,7 @@ public class ShareUtil {
     }
 
     /**
-     * 保存Bitmap到SD卡
+     * save the Bitmap to SDCard
      * @param context context
      * @param bitmap bitmap
      * @return filePath
@@ -141,7 +141,7 @@ public class ShareUtil {
             ToastUtil.showToast(context, R.string.share_save_bitmap_failed, true);
             return null;
         }
-        //SD卡是否挂载
+        //SDCard is valid
         if (!Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())) {
             ToastUtil.showToast(context, R.string.share_save_bitmap_no_sdcard, true);
             return null;

@@ -95,13 +95,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     /**
      * 分享大图，大图分享支持，微信，微信朋友圈，微博，QQ，其他渠道不支持
      *
-     * 实例
+     * 分享大图注意点
+     * 1、setShareBigImg为ture
+     * 2、QQ分享大图，只能是本地图片
      */
     public void shareBigImg() {
         ShareEntity testBean = new ShareEntity("", "");
         testBean.setShareBigImg(true);
-        testBean.setImgUrl("https://www.baidu.com/img/bd_logo1.png"); // 网络地址
-//        testBean.setImgUrl("/storage/sdcard0/com.xyzlf.share_share_pic.png"); //本地地址
+//        testBean.setImgUrl("https://www.baidu.com/img/bd_logo1.png"); // 网络地址
+        testBean.setImgUrl("/storage/sdcard0/Android/data/com.xyzlf.share/files/com.xyzlf.share_share_pic.png"); //本地地址
 
         /** 如果你要分享的图片是Bitmap，你可以如下使用 **/
 //        Bitmap bitmap = null;

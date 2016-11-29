@@ -69,7 +69,13 @@ public class ShareByQQ extends ShareBase {
             }
         };
 
-        if (!data.isShareBigImg()) {
+        if (data.isShareBigImg() && !TextUtils.isEmpty(data.getImgUrl()) && !data.getImgUrl().startsWith("http")) {
+            Bundle params = new Bundle();
+            params.putString(QQShare.SHARE_TO_QQ_IMAGE_LOCAL_URL, data.getImgUrl());
+            params.putInt(QQShare.SHARE_TO_QQ_KEY_TYPE, QQShare.SHARE_TO_QQ_TYPE_IMAGE);
+            params.putInt(QQShare.SHARE_TO_QQ_EXT_INT, QQShare.SHARE_TO_QQ_FLAG_QZONE_ITEM_HIDE);
+            mTencent.shareToQQ((Activity) context, params, callBack);
+        } else {
             if (!TextUtils.isEmpty(data.getUrl()) && !TextUtils.isEmpty(data.getTitle())) {
                 if (!(context instanceof Activity)) {
                     return;
@@ -110,17 +116,6 @@ public class ShareByQQ extends ShareBase {
                         listener.onShare(ShareConstant.SHARE_CHANNEL_QQ, ShareConstant.SHARE_STATUS_FAILED);
                     }
                 }
-            }
-        } else {
-            if (!TextUtils.isEmpty(data.getImgUrl())) {
-                //通过imgUrl 目录地址去本地图片
-                Bundle params = new Bundle();
-                params.putString(QQShare.SHARE_TO_QQ_IMAGE_LOCAL_URL, data.getImgUrl());
-                params.putInt(QQShare.SHARE_TO_QQ_KEY_TYPE, QQShare.SHARE_TO_QQ_TYPE_IMAGE);
-                params.putInt(QQShare.SHARE_TO_QQ_EXT_INT, QQShare.SHARE_TO_QQ_FLAG_QZONE_ITEM_HIDE);
-                mTencent.shareToQQ((Activity) context, params, callBack);
-            } else {
-                ToastUtil.showToast(context, "data.getImgUrl() is null", true);
             }
         }
     }
