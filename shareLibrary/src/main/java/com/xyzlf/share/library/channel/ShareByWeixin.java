@@ -90,7 +90,11 @@ public class ShareByWeixin extends ShareBase {
                     new BitmapAsyncTask(imgUrl, new BitmapAsyncTask.OnBitmapListener() {
                         @Override
                         public void onSuccess(Bitmap bitmap) {
-                            send(bitmap);
+                            if (data.isShareBigImg()) {
+                                shareImg(bitmap, listener);
+                            } else {
+                                send(bitmap);
+                            }
                         }
 
                         @Override
@@ -100,7 +104,11 @@ public class ShareByWeixin extends ShareBase {
                     }).execute();
                 } else {
                     //本地图片
-                   send(getLoacalBitmap(imgUrl));
+                    if (data.isShareBigImg()) {
+                        shareImg(getLoacalBitmap(imgUrl), listener);
+                    } else {
+                        send(getLoacalBitmap(imgUrl));
+                    }
                 }
             } else if (data.getDrawableId() != 0) {
                 BitmapDrawable drawable = null;
@@ -113,9 +121,9 @@ public class ShareByWeixin extends ShareBase {
                 } else {
                     send();
                 }
-            } else if (data.getBitmap() != null) {
+            }/* else if (data.getBitmap() != null) {
                 send(data.getBitmap());
-            }  else {
+            } */ else {
                 send();
             }
         } else {
@@ -219,8 +227,10 @@ public class ShareByWeixin extends ShareBase {
     private static final int THUMB_SIZE = 250;
 
     public void shareImg(Bitmap bitmap, OnShareListener listener) {
-        this.listener = listener;
         if (null == bitmap) {
+            if (null != listener) {
+                listener.onShare(channel, ShareConstant.SHARE_STATUS_FAILED);
+            }
             return;
         }
         if (api.isWXAppInstalled()) {

@@ -41,4 +41,10 @@
         android:layout_height="wrap_content"
         android:text="@string/share_weibo" />
 
+    <Button
+        android:id="@+id/share_bigimage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/share_bigimage" />
+
 </LinearLayout>

@@ -26,7 +26,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.share_qzone).setOnClickListener(this);
         findViewById(R.id.share_weibo).setOnClickListener(this);
         findViewById(R.id.share_weixin).setOnClickListener(this);
-        findViewById(R.id.share_wxcircle).setOnClickListener(this);
+
+        findViewById(R.id.share_bigimage).setOnClickListener(this);
 
     }
 
@@ -39,7 +40,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         testBean.setImgUrl("https://www.baidu.com/img/bd_logo1.png");
         ShareUtil.showShareDialog(this, testBean, ShareConstant.REQUEST_CODE);
     }
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -84,6 +84,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.share_wxcircle:
                 ShareUtil.startShare(this, ShareConstant.SHARE_CHANNEL_WEIXIN_CIRCLE, testBean, ShareConstant.REQUEST_CODE);
                 break;
+
+            //分享大图
+            case R.id.share_bigimage:
+                shareBigImg();
+                break;
         }
     }
+
+    /**
+     * 分享大图，大图分享支持，微信，微信朋友圈，微博，QQ，其他渠道不支持
+     *
+     * 实例
+     */
+    public void shareBigImg() {
+        ShareEntity testBean = new ShareEntity("", "");
+        testBean.setShareBigImg(true);
+        testBean.setImgUrl("https://www.baidu.com/img/bd_logo1.png"); // 网络地址
+//        testBean.setImgUrl("/storage/sdcard0/com.xyzlf.share_share_pic.png"); //本地地址
+
+        /** 如果你要分享的图片是Bitmap，你可以如下使用 **/
+//        Bitmap bitmap = null;
+//        String filePath = ShareUtil.saveBitmapToSDCard(this, bitmap);
+//        testBean.setImgUrl(filePath);
+
+        int channel = ShareConstant.SHARE_CHANNEL_WEIXIN_FRIEND | ShareConstant.SHARE_CHANNEL_WEIXIN_CIRCLE | ShareConstant.SHARE_CHANNEL_SINA_WEIBO | ShareConstant.SHARE_CHANNEL_QQ;
+        ShareUtil.showShareDialog(this, channel, testBean, ShareConstant.REQUEST_CODE);
+    }
+
 }

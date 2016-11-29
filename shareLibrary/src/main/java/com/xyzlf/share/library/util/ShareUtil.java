@@ -4,13 +4,20 @@ import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.os.Environment;
+import android.text.TextUtils;
 import android.util.SparseArray;
 
+import com.xyzlf.com.share.library.R;
 import com.xyzlf.share.library.ShareDialogActivity;
 import com.xyzlf.share.library.ShareHandlerActivity;
 import com.xyzlf.share.library.bean.ShareEntity;
 import com.xyzlf.share.library.interfaces.ShareConstant;
+
+import java.io.File;
+import java.io.FileOutputStream;
 
 /**
  * Created by zhanglifeng on 15/6/4.
@@ -118,6 +125,56 @@ public class ShareUtil {
             e.printStackTrace();
         }
         return bResult;
+    }
+
+    /**
+     * 保存Bitmap到SD卡
+     * @param context context
+     * @param bitmap bitmap
+     * @return filePath
+     */
+    public static String saveBitmapToSDCard(Context context, Bitmap bitmap) {
+        if (null == context) {
+            return null;
+        }
+        if (null == bitmap) {
+            ToastUtil.showToast(context, R.string.share_save_bitmap_failed, true);
+            return null;
+        }
+        //SD卡是否挂载
+        if (!Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())) {
+            ToastUtil.showToast(context, R.string.share_save_bitmap_no_sdcard, true);
+            return null;
+        }
+        String filePath = null;
+        File externalFilesDir = context.getExternalFilesDir(null);
+        String dir = null;
+        if (null != externalFilesDir) {
+            dir = externalFilesDir.getAbsolutePath();
+        }
+        String packageName = context.getPackageName();
+        if (!TextUtils.isEmpty(dir)) {
+            if (!dir.endsWith(File.separator)) {
+                filePath = dir + File.separator + packageName + "_share_pic.png";
+            } else {
+                filePath = dir + packageName + "_share_pic.png";
+            }
+            try {
+                File file = new File(filePath);
+                if (file.exists()) {
+                    file.delete();
+                }
+                file.createNewFile();
+
+                FileOutputStream outputStream = new FileOutputStream(file);
+                bitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream);
+                outputStream.flush();
+                outputStream.close();
+            } catch (Exception e) {
+                ToastUtil.showToast(context, e.getMessage(), true);
+            }
+        }
+        return filePath;
     }
 
 }

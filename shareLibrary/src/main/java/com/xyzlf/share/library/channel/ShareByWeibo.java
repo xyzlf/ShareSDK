@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
@@ -127,9 +126,9 @@ public class ShareByWeibo extends ShareBase {
             } else {
                 sendMultiMessage();
             }
-        } else if (data.getBitmap() != null) {
+        } /*else if (data.getBitmap() != null) {
             sendMultiMessage(data.getBitmap());
-        } else {
+        }*/ else {
             sendMultiMessage();
         }
     }
@@ -214,7 +213,9 @@ public class ShareByWeibo extends ShareBase {
         TextObject textObject = new TextObject();
         if (null != data) {
             StringBuilder builder = new StringBuilder();
-            builder.append(data.getContent());
+            if (!TextUtils.isEmpty(data.getContent())) {
+                builder.append(data.getContent());
+            }
             if (!TextUtils.isEmpty(data.getUrl())) {
                 builder.append("  ").append(data.getUrl());
             }
@@ -226,24 +227,25 @@ public class ShareByWeibo extends ShareBase {
     private ImageObject getImageObj(Bitmap bitmap) {
         ImageObject imageObject = new ImageObject();
         if (null != bitmap) {
-            imageObject.setImageObject(getShareBitmap(bitmap));
+            imageObject.setImageObject(/*getShareBitmap(bitmap)*/bitmap);
         } else {
-            Bitmap localBitmap = getShareBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.share_default));
+//            Bitmap localBitmap = getShareBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.share_default));
+            Bitmap localBitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.share_default);
             imageObject.setImageObject(localBitmap);
         }
         return imageObject;
     }
 
-    /**
-     * 微信分享图片不能超过32kb
-     * @param targetBitmap bitmap
-     * @return Bitmap
-     */
-    protected Bitmap getShareBitmap(Bitmap targetBitmap) {
-        float scale = Math.min((float) 150 / targetBitmap.getWidth(), (float) 150 / targetBitmap.getHeight());
-        Bitmap fixedBmp = Bitmap.createScaledBitmap(targetBitmap, (int) (scale * targetBitmap.getWidth()), (int) (scale * targetBitmap.getHeight()), false);
-        return fixedBmp;
-    }
+//    /**
+//     * 微信分享图片不能超过32kb
+//     * @param targetBitmap bitmap
+//     * @return Bitmap
+//     */
+//    protected Bitmap getShareBitmap(Bitmap targetBitmap) {
+//        float scale = Math.min((float) 150 / targetBitmap.getWidth(), (float) 150 / targetBitmap.getHeight());
+//        Bitmap fixedBmp = Bitmap.createScaledBitmap(targetBitmap, (int) (scale * targetBitmap.getWidth()), (int) (scale * targetBitmap.getHeight()), false);
+//        return fixedBmp;
+//    }
 
     class AuthListener implements WeiboAuthListener {
 

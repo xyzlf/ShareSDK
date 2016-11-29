@@ -9,4 +9,6 @@
     <string name="share_weibo">调用微博分享</string>
     <string name="share_qzone">调用QZone分享</string>
 
+    <string name="share_bigimage">分享大图</string>
+
 </resources>

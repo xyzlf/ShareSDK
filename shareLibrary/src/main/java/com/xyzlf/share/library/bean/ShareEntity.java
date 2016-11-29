@@ -1,6 +1,5 @@
 package com.xyzlf.share.library.bean;
 
-import android.graphics.Bitmap;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.annotation.DrawableRes;
@@ -16,7 +15,7 @@ public class ShareEntity implements Parcelable {
 
     private String imgUrl;
     private int drawableId;
-    private Bitmap bitmap;
+    private boolean isShareBigImg;
 
     public ShareEntity(String title, String content) {
         this(title, content, null);
@@ -73,12 +72,12 @@ public class ShareEntity implements Parcelable {
         return drawableId;
     }
 
-    public void setBitmap(Bitmap bitmap) {
-        this.bitmap = bitmap;
+    public void setShareBigImg(boolean shareBigImg) {
+        isShareBigImg = shareBigImg;
     }
 
-    public Bitmap getBitmap() {
-        return bitmap;
+    public boolean isShareBigImg() {
+        return isShareBigImg;
     }
 
     @Override
@@ -104,7 +103,7 @@ public class ShareEntity implements Parcelable {
         url = in.readString();
         imgUrl = in.readString();
         drawableId = in.readInt();
-        bitmap = in.readParcelable(Bitmap.class.getClassLoader());
+        isShareBigImg = in.readByte() != 0;
     }
 
     @Override
@@ -114,6 +113,6 @@ public class ShareEntity implements Parcelable {
         dest.writeString(url);
         dest.writeString(imgUrl);
         dest.writeInt(drawableId);
-        dest.writeParcelable(bitmap, flags);
+        dest.writeByte((byte) (isShareBigImg ? 1 : 0));
     }
 }

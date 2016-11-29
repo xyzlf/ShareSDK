@@ -27,4 +27,9 @@
     <string name="share_channel_qzone">QQ空间</string>
     <string name="share_channel_more">更多</string>
 
+
+    <!-- saveBitmap -->
+    <string name="share_save_bitmap_failed">图片保存失败</string>
+    <string name="share_save_bitmap_no_sdcard">SD卡未挂载</string>
+
 </resources>
