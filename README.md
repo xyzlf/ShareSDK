@@ -61,11 +61,13 @@
 **0.0.7 支持分享大图，修复分享本地图片
 
 ShareEntity testBean = new ShareEntity("我是标题", "我是内容，描述内容。");
+
 1、去除了testBean.setBitmap(bitmap)方法，因为ShareEntity是通过Intent传递，如果bitmap稍大，就会出现异常。
 
 2、增加了分享大图属性 testBean.setShareBigImg(true);
 
 实例：
+
 	 /**
      * 分享大图，大图分享支持，微信，微信朋友圈，微博，QQ，其他渠道不支持
      *
