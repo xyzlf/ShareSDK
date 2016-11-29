@@ -3,7 +3,7 @@
 
 # Gradle
     
-    compile ('com.xyzlf.share:sharesdk:0.0.6') {
+    compile ('com.xyzlf.share:sharesdk:0.0.7') {
     	exclude group: 'com.android.support', module: 'appcompat-v7'
     }
 
@@ -57,6 +57,38 @@
 配合使用说明文档，在配置调用方面应该不会有啥问题了。
 
 # 更新日志
+
+**0.0.7 支持分享大图，修复分享本地图片
+
+ShareEntity testBean = new ShareEntity("我是标题", "我是内容，描述内容。");
+
+1、去除了testBean.setBitmap(bitmap)方法，因为ShareEntity是通过Intent传递，如果bitmap稍大，就会出现异常。
+2、增加了分享大图属性 testBean.setShareBigImg(true);
+
+实例：
+
+	 /**
+     * 分享大图，大图分享支持，微信，微信朋友圈，微博，QQ，其他渠道不支持
+     *
+     * 分享大图注意点
+     * 1、setShareBigImg为ture
+     * 2、QQ分享大图，只能是本地图片
+     */
+    public void shareBigImg() {
+        ShareEntity testBean = new ShareEntity("", "");
+        testBean.setShareBigImg(true);
+		// testBean.setImgUrl("https://www.baidu.com/img/bd_logo1.png"); // 网络地址
+        testBean.setImgUrl("/storage/sdcard0/Android/data/com.xyzlf.share/files/com.xyzlf.share_share_pic.png"); //本地地址
+
+        /** 如果你要分享的图片是Bitmap，你可以如下使用 **/
+		// Bitmap bitmap = null;
+		// String filePath = ShareUtil.saveBitmapToSDCard(this, bitmap);
+		// testBean.setImgUrl(filePath);
+
+        int channel = ShareConstant.SHARE_CHANNEL_WEIXIN_FRIEND | ShareConstant.SHARE_CHANNEL_WEIXIN_CIRCLE | ShareConstant.SHARE_CHANNEL_SINA_WEIBO | ShareConstant.SHARE_CHANNEL_QQ;
+        ShareUtil.showShareDialog(this, channel, testBean, ShareConstant.REQUEST_CODE);
+    }
+
 
 **0.0.6 支持本地图片分享**
 
