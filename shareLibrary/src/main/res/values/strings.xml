@@ -17,6 +17,7 @@
     <string name="share_weibosdk_auth_success">授权成功</string>
     <string name="share_weibosdk_auth_failed">授权失败</string>
     <string name="share_weibosdk_auth_canceled">取消授权</string>
+    <string name="share_no_weibo_client">分享失败，请先安装微博客户端</string>
 
 
     <!-- share channel -->

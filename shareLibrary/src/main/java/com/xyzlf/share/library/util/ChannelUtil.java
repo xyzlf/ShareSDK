@@ -47,4 +47,22 @@ public class ChannelUtil {
     public static boolean isQQInstall(Context context) {
         return isAppInstall(context, ShareConstant.QQ_PACKAGE_NAME);
     }
+
+    /**
+     * 微博是否安装
+     * @param context
+     * @return
+     */
+    public static boolean isWeiboInstall(Context context) {
+        return isAppInstall(context, ShareConstant.SINA_WEIBO_PACKAGE_NAME);
+    }
+    /**
+     * 微博轻聊版是否安装
+     * @param context
+     * @return
+     */
+    public static boolean isWeiboLiteInstall(Context context) {
+        return isAppInstall(context, ShareConstant.SINA_WEIBO_LITE_PACKAGE_NAME);
+    }
+
 }
