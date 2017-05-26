@@ -103,7 +103,17 @@ ShareEntity testBean = new ShareEntity("我是标题", "我是内容，描述内
 
 # 同类分享库收集
 
-1、社会化登录分享工具库：<https://github.com/tianzhijiexian/ShareLoginLib>
+1、ThirdParty login and share lib：<https://github.com/tianzhijiexian/ShareLoginLib>
+
+2、社会化登录分享工具库：<https://github.com/shaohui10086/ShareUtil>
+
+3、Bilibili/BiliShare：<https://github.com/Bilibili/BiliShare>
+
+4、maoruibin/ChinaShare：<https://github.com/maoruibin/ChinaShare>
+
+5、JeasonWong/FlipShare：<https://github.com/JeasonWong/FlipShare>
+
+6、kayan1990/ShareButton：<https://github.com/kayan1990/ShareButton>
 
 # 关于我
 有任何使用问题，可以给我发邮件：
