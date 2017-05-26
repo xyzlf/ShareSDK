@@ -101,6 +101,10 @@ ShareEntity testBean = new ShareEntity("我是标题", "我是内容，描述内
 
 3、本地代码截屏Bitmap，使用方式：testBean.setBitmap(bitmap);
 
+# 同类分享库收集
+
+1、社会化登录分享工具库：<https://github.com/tianzhijiexian/ShareLoginLib>
+
 # 关于我
 有任何使用问题，可以给我发邮件：
 
