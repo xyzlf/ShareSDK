@@ -24,10 +24,6 @@
             android:value="@string/weixin_key"/>
 
         <meta-data
-            android:name="weixin_redirecturi"
-            android:value="@string/weixin_redirecturi" />
-
-        <meta-data
             android:name="sina_weibo_redirecturi"
             android:value="@string/sina_weibo_redirecturi" />
 

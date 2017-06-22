@@ -7,7 +7,6 @@
 
     <!-- Weixin -->
     <string name="weixin_key">your weixin key</string>
-    <string name="weixin_redirecturi">your weixin redirecturi</string>
 
     <!-- QQ -->
     <string name="tencent_qq_appid">222222</string>
