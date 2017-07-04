@@ -70,7 +70,7 @@ public class ShareConstant {
     public static final String WEIXIN_PACKAGE_NAME = "com.tencent.mm"; // 微信包名
     public static final String QQ_PACKAGE_NAME = "com.tencent.mobileqq"; // QQ包名
     public static final String SINA_WEIBO_PACKAGE_NAME = "com.sina.weibo"; // 新浪微博
-    public static final String SINA_WEIBO_LITE_PACKAGE_NAME = "com.sina.weibolite"; // 新浪微博轻聊版
+    public static final String SINA_WEIBO_LITE_PACKAGE_NAME = "com.sina.weibolite";
 
     /// <<<< request code
     public static final int REQUEST_CODE = 20112;

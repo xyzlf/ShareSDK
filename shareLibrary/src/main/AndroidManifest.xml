@@ -13,7 +13,7 @@
         <activity
             android:name="com.xyzlf.share.library.ShareHandlerActivity"
             android:configChanges="orientation|keyboardHidden"
-            android:launchMode="singleTask"
+            android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent">
             <intent-filter>
@@ -24,10 +24,10 @@
         </activity>
 
         <!-- 必须注册在微博授权，分享微博时候用到 -->
-        <activity android:name="com.sina.weibo.sdk.component.WeiboSdkBrowser"
+        <!--<activity android:name="com.sina.weibo.sdk.component.WeiboSdkBrowser"
                   android:configChanges="keyboardHidden|orientation"
                   android:windowSoftInputMode="adjustResize"
-                  android:exported="false" />
+                  android:exported="false" />-->
     </application>
 
 </manifest>

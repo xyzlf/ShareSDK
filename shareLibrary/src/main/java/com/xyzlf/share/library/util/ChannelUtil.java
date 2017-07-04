@@ -50,16 +50,15 @@ public class ChannelUtil {
 
     /**
      * 微博是否安装
-     * @param context
-     * @return
+     * @param context context
+     * @return boolean
      */
     public static boolean isWeiboInstall(Context context) {
         return isAppInstall(context, ShareConstant.SINA_WEIBO_PACKAGE_NAME);
     }
     /**
-     * 微博轻聊版是否安装
-     * @param context
-     * @return
+     * @param context context
+     * @return boolean
      */
     public static boolean isWeiboLiteInstall(Context context) {
         return isAppInstall(context, ShareConstant.SINA_WEIBO_LITE_PACKAGE_NAME);

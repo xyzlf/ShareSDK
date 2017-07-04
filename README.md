@@ -3,7 +3,7 @@
 
 # Gradle
     
-    compile ('com.xyzlf.share:sharesdk:0.0.7') {
+    compile ('com.xyzlf.share:sharesdk:0.0.8') {
     	exclude group: 'com.android.support', module: 'appcompat-v7'
     }
 
@@ -57,6 +57,10 @@
 配合使用说明文档，在配置调用方面应该不会有啥问题了。
 
 # 更新日志
+
+**0.0.8 去除微博SDK**
+
+使用0.0.8 aar，无需配置微博的key。 解决部分机型，微博service因隐士调用崩溃的问题。
 
 **0.0.7 支持分享大图，修复分享本地图片**
 

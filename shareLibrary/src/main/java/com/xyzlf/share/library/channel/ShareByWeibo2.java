@@ -153,7 +153,7 @@ public class ShareByWeibo2 extends ShareBase {
                 }
 
                 if (!TextUtils.isEmpty(imgPath)) {
-                    weiboIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse(imgPath));//SD卡下图片的绝对路径
+                    weiboIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse(imgPath));
                 }
                 context.startActivity(weiboIntent);
                 listener.onShare(ShareConstant.SHARE_CHANNEL_SINA_WEIBO, ShareConstant.SHARE_STATUS_COMPLETE);
