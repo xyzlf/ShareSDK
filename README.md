@@ -3,7 +3,7 @@
 
 # Gradle
     
-    compile ('com.xyzlf.share:sharesdk:0.0.8') {
+    compile ('com.xyzlf.share:sharesdk:0.0.9') {
     	exclude group: 'com.android.support', module: 'appcompat-v7'
     }
 
@@ -57,6 +57,10 @@
 配合使用说明文档，在配置调用方面应该不会有啥问题了。
 
 # 更新日志
+
+**0.0.9 去除微博SDK**
+
+解决qq未登录状态下，多次点击，多次弹出“分享取消”bug。
 
 **0.0.8 去除微博SDK**
 

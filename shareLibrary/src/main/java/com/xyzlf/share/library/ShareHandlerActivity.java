@@ -1,8 +1,11 @@
 package com.xyzlf.share.library;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Window;
 
+import com.tencent.connect.common.Constants;
+import com.tencent.tauth.Tencent;
 import com.xyzlf.share.library.bean.ShareEntity;
 import com.xyzlf.share.library.channel.ShareByEmail;
 import com.xyzlf.share.library.channel.ShareByQQ;
@@ -127,14 +130,13 @@ public class ShareHandlerActivity extends ShareBaseActivity implements /*IWeiboH
 //        }
 //    }
 
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//
-//        if (null != shareByWeibo) {
-//            shareByWeibo.onActivityResult(requestCode, resultCode, data);
-//        }
-//    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == Constants.REQUEST_QQ_SHARE || requestCode == Constants.REQUEST_QZONE_SHARE) {
+            Tencent.onActivityResultData(requestCode, resultCode, data, null);
+        }
+    }
 
     @Override
     public void onShare(int channel, int status) {
