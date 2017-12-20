@@ -39,13 +39,19 @@ public class ShareDialogActivity extends ShareBaseActivity implements AdapterVie
         super.onCreate(savedInstanceState);
         setContentView(R.layout.share_activity_dialog);
 
-        Object object;
+        Object object = null;
         if (getIntent().hasExtra(ShareConstant.EXTRA_SHARE_DATA)) {
-            Bundle bundle = getIntent().getBundleExtra(ShareConstant.EXTRA_SHARE_DATA);
+            Bundle bundle = null;
+            try {
+                bundle = getIntent().getBundleExtra(ShareConstant.EXTRA_SHARE_DATA);
+            } catch (Exception ignore) {}
+
             if (null != bundle) {
                 object = bundle.get(ShareConstant.EXTRA_SHARE_DATA);
             } else {
-                object = getIntent().getParcelableExtra(ShareConstant.EXTRA_SHARE_DATA);
+                try {
+                    object = getIntent().getParcelableExtra(ShareConstant.EXTRA_SHARE_DATA);
+                } catch (Exception ignore) {}
                 if (null == object) {
                     object = getIntent().getSerializableExtra(ShareConstant.EXTRA_SHARE_DATA);
                 }

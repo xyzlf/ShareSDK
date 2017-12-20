@@ -1,10 +1,10 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.novoda.bintray-release'//添加
+apply plugin: 'com.novoda.bintray-release'//??
 
 
 android {
     compileSdkVersion 24
-    buildToolsVersion '25.0.0'
+    buildToolsVersion '26.0.2'
 
     defaultConfig {
         minSdkVersion 8
@@ -54,17 +54,17 @@ properties.load(project.rootProject.file('local.properties').newDataInputStream(
 String localBintrayUser = properties.getProperty("bintray.user")
 String localBintrayApikey = properties.getProperty("bintray.apikey")
 
-//推送指令
+//????
 //gradlew clean build bintrayUpload
-//添加
+//??
 publish {
-    bintrayUser = localBintrayUser   //bintray.com用户名
+    bintrayUser = localBintrayUser   //bintray.com???
     bintrayKey = localBintrayApikey  //bintray.com apikey
     dryRun = false
     userOrg = localBintrayUser
-    groupId = 'com.'+ localBintrayUser +'.share'//jcenter上的路径
-    artifactId = 'sharesdk'//项目名称
-    publishVersion = '0.0.9'//版本号
+    groupId = 'com.'+ localBintrayUser +'.share'//jcenter????
+    artifactId = 'sharesdk'//????
+    publishVersion = '0.0.10'//???
     desc = 'This is a share SDK. It include QQ, Weixin, Weibo, Sms, Email channel.'
     website = 'https://github.com/xyzlf/ShareSDK'
 }
