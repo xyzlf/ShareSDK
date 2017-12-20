@@ -23,13 +23,14 @@
             android:name="weixin_key"
             android:value="@string/weixin_key"/>
 
-        <meta-data
+        <!-- 去除了微博SDK 所以不需要配置key啦 -->
+        <!--<meta-data
             android:name="sina_weibo_redirecturi"
             android:value="@string/sina_weibo_redirecturi" />
 
         <meta-data
             android:name="sina_weibo_key"
-            android:value="@string/sina_weibo_key" />
+            android:value="@string/sina_weibo_key" />-->
 
         <activity android:name=".MainActivity">
             <intent-filter>
