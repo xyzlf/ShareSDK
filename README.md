@@ -123,6 +123,8 @@ ShareEntity testBean = new ShareEntity("我是标题", "我是内容，描述内
 
 6、kayan1990/ShareButton：<https://github.com/kayan1990/ShareButton>
 
+7、arvinljw/SocialHelper：<https://github.com/arvinljw/SocialHelper>
+
 # 关于我
 有任何使用问题，可以给我发邮件：
 
