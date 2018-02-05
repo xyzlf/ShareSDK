@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
 
-import com.xyzlf.com.share.library.R;
+import com.xyzlf.share.library.R;
 import com.xyzlf.share.library.bean.ShareEntity;
 import com.xyzlf.share.library.interfaces.OnShareListener;
 import com.xyzlf.share.library.interfaces.ShareConstant;

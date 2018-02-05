@@ -10,7 +10,7 @@ import android.os.Environment;
 import android.text.TextUtils;
 import android.util.SparseArray;
 
-import com.xyzlf.com.share.library.R;
+import com.xyzlf.share.library.R;
 import com.xyzlf.share.library.ShareDialogActivity;
 import com.xyzlf.share.library.ShareHandlerActivity;
 import com.xyzlf.share.library.bean.ShareEntity;
