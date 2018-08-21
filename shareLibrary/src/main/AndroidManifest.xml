@@ -7,14 +7,12 @@
             android:name="com.xyzlf.share.library.ShareDialogActivity"
             android:configChanges="orientation|keyboardHidden"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait"
             android:theme="@style/ShareDialogTheme" />
 
         <activity
             android:name="com.xyzlf.share.library.ShareHandlerActivity"
             android:configChanges="orientation|keyboardHidden"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent">
             <intent-filter>
                 <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />

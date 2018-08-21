@@ -64,7 +64,7 @@ publish {
     userOrg = localBintrayUser
     groupId = 'com.'+ localBintrayUser +'.share'//jcenter????
     artifactId = 'sharesdk'//????
-    publishVersion = '0.0.10'//???
+    publishVersion = '0.0.11'//???
     desc = 'This is a share SDK. It include QQ, Weixin, Weibo, Sms, Email channel.'
     website = 'https://github.com/xyzlf/ShareSDK'
 }
