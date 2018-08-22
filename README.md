@@ -3,7 +3,7 @@
 
 # Gradle
     
-    compile ('com.xyzlf.share:sharesdk:0.0.10') {
+    compile ('com.xyzlf.share:sharesdk:0.0.11') {
     	exclude group: 'com.android.support', module: 'appcompat-v7'
     }
 
@@ -57,6 +57,10 @@
 配合使用说明文档，在配置调用方面应该不会有啥问题了。
 
 # 更新日志
+
+**0.0.11**
+
+解决bug：Only fullscreen opaque activities can request orientation
 
 **0.0.9 Bugfixed**
 
