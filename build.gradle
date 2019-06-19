@@ -2,12 +2,12 @@
 
 buildscript {
     repositories {
-        jcenter()
         google()
+        jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.1'
-        classpath 'com.novoda:bintray-release:0.6.1'
+        classpath 'com.android.tools.build:gradle:3.1.0'
+        classpath 'com.novoda:bintray-release:0.8.1'
 
 
         // NOTE: Do not place your application dependencies here; they belong
@@ -17,8 +17,8 @@ buildscript {
 
 allprojects {
     repositories {
-        jcenter()
         google()
+        jcenter()
     }
 
     tasks.withType(Javadoc) {
